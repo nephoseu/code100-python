@@ -6,7 +6,10 @@ password = "PASSWORD-HERE" # Replace with password given to you
 # Step 1: Login
 login_data = { "email": email, "password": password }
 login_response = requests.post("https://challenger.code100.dev/login", json=login_data)
-token = login_response.json()["token"]
+token = login_response.json().get("token")
+if (not token):
+    print(login_response.status_code, "Invalid credentials")
+    exit()
 
 # Step 2: Call Authenticated Endpoint to just check if the token is working
 headers = {"Authorization": f"Bearer {token}"}
@@ -24,6 +27,6 @@ print(puzzle.json(), "\n")
 answer = "some solution in the requested format"
 
 # Step 5: Submit the solution
-solution = { "answer": answer }
+solution = { "answer1": answer }
 submit_response = requests.post("https://challenger.code100.dev/postanswer", json=solution, headers=headers)
 print(submit_response.json().get("message"))
