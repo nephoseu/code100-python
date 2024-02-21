@@ -24,6 +24,6 @@ print(puzzle.json(), "\n")
 answer = "some solution in the requested format"
 
 # Step 5: Submit the solution
-solution = { "answer1": answer }
+solution = { "answer": answer }
 submit_response = requests.post("https://challenger.code100.dev/postanswer", json=solution, headers=headers)
 print(submit_response.json().get("message"))
