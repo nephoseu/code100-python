@@ -5,6 +5,14 @@ The code example of communicating with the API is already present in the `code10
 
 If you need additional information regarding the API you may find it in the rest of this document.
 
+### Running the project
+
+Open the terminal and run:
+```sh
+pip install -r requirements.txt
+python code100.py
+```
+
 ## API Base URL
 ```
 https://challenger.code100.dev
